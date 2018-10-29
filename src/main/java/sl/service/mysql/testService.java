@@ -1,8 +1,8 @@
-package sl.service;
+package sl.service.mysql;
 
 import org.springframework.stereotype.Service;
 import sl.dao.mysql.testDao;
-import sl.entities.test;
+import sl.entities.mysql.test;
 
 import javax.annotation.Resource;
 import java.util.List;

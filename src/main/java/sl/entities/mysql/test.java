@@ -1,4 +1,4 @@
-package sl.entities;
+package sl.entities.mysql;
 
 /**
  * Created by tt on 2018/10/24.

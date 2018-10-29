@@ -11,7 +11,7 @@
           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <!-- 读取属性文件 -->
-    <context:property-placeholder location="classpath:mongodb.properties" />
+    <context:property-placeholder location="classpath:mysql.properties,classpath:mongodb.properties" />
 
     <!--
         MongoDB配置部分

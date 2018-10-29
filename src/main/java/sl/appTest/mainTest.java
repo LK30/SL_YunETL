@@ -2,8 +2,10 @@ package sl.appTest;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import sl.entities.test;
-import sl.service.testService;
+import sl.entities.mongodb.mongoTest;
+import sl.entities.mysql.test;
+import sl.service.mongodb.mongoTestService;
+import sl.service.mysql.testService;
 
 import java.util.List;
 
@@ -13,8 +15,15 @@ import java.util.List;
 public class mainTest {
     public static void main(String[] args) {
         ApplicationContext ctx=new ClassPathXmlApplicationContext("applicationContext.xml");
-        testService s=ctx.getBean(testService.class);
+
+
+        testService s=(testService)ctx.getBean("testService");
         List<test> t=s.getAll();
-        System.out.println(t.size());
+        System.out.println(t.get(2).getId());
+
+
+        mongoTestService s2=(mongoTestService)ctx.getBean("mongoTestService");
+        List<mongoTest> t2=s2.getAll();
+        System.out.println(t2.get(0).get_id());
     }
 }
