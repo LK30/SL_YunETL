@@ -1,5 +1,7 @@
 package sl.dao.mysql;
-import sl.entities.mysql.test;
+
+import sl.entities.test;
+
 import java.util.List;
 
 /**

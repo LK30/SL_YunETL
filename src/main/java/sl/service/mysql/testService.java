@@ -2,7 +2,7 @@ package sl.service.mysql;
 
 import org.springframework.stereotype.Service;
 import sl.dao.mysql.testDao;
-import sl.entities.mysql.test;
+import sl.entities.test;
 
 import javax.annotation.Resource;
 import java.util.List;

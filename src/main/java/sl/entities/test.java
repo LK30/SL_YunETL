@@ -1,4 +1,4 @@
-package sl.entities.mongodb;
+package sl.entities;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -8,12 +8,12 @@ import org.springframework.data.mongodb.core.mapping.Field;
  * Created by tt on 2018/10/29.
  */
 @Document(collection = "test")
-public class mongoTest {
+public class test {
     @Id
     private String _id;
 
     @Field("id")
-    private String id;
+    private int id;
 
     public String get_id() {
         return _id;
@@ -23,11 +23,11 @@ public class mongoTest {
         this._id = _id;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 }

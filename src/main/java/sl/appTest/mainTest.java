@@ -2,8 +2,7 @@ package sl.appTest;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import sl.entities.mongodb.mongoTest;
-import sl.entities.mysql.test;
+import sl.entities.test;
 import sl.service.mongodb.mongoTestService;
 import sl.service.mysql.testService;
 
@@ -21,9 +20,12 @@ public class mainTest {
         List<test> t=s.getAll();
         System.out.println(t.get(2).getId());
 
-        //测试mongodb
+        //测试mongodb select
         mongoTestService s2=(mongoTestService)ctx.getBean("mongoTestService");
-        List<mongoTest> t2=s2.getAll();
+        List<test> t2=s2.getAll();
         System.out.println(t2.get(0).get_id());
+
+        //测试mongodb select
+        s2.insert();
     }
 }

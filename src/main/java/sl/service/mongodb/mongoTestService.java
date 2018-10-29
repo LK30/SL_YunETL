@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
-import sl.entities.mongodb.mongoTest;
+import sl.entities.test;
 
 import java.util.List;
 
@@ -17,10 +17,16 @@ public class mongoTestService {
     @Autowired
     MongoOperations mongoTemplate;
 
-    public List<mongoTest> getAll() {
+    public List<test> getAll() {
         Criteria criteria = Criteria.where("id").is(1);
         Query query = new Query(criteria);
-        List<mongoTest> list = mongoTemplate.find(query, mongoTest.class);
+        List<test> list = mongoTemplate.find(query, test.class);
         return list;
+    }
+
+    public void insert() {
+        test t =new test();
+        t.setId(12433);
+       mongoTemplate.insert(t,"test");
     }
 }
