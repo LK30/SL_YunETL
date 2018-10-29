@@ -16,12 +16,12 @@ public class mainTest {
     public static void main(String[] args) {
         ApplicationContext ctx=new ClassPathXmlApplicationContext("applicationContext.xml");
 
-
+        //测试mysql
         testService s=(testService)ctx.getBean("testService");
         List<test> t=s.getAll();
         System.out.println(t.get(2).getId());
 
-
+        //测试mongodb
         mongoTestService s2=(mongoTestService)ctx.getBean("mongoTestService");
         List<mongoTest> t2=s2.getAll();
         System.out.println(t2.get(0).get_id());
