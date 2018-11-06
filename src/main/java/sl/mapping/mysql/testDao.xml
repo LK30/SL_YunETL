@@ -4,4 +4,18 @@
     <select id="getAlltest" resultType="sl.entities.test">
         select * from test
     </select>
+    <select id="selectAllFromZbookLendSys" resultType="sl.entities.BookLend">
+        SELECT * FROM z_book_back_sys;
+    </select>
+    <select id="getRowIndex" resultMap="getMaxAndMinIndex">
+        SELECT  MAX(id) as maxIndex,  MIN(id) AS minIndex FROM z_book_lend_sys;
+    </select>
+
+    <resultMap type="map" id="getMaxAndMinIndex">
+        <result column="maxIndex" property="maxIndex" javaType="Long"/>
+        <result column="minIndex" property="minIndex" javaType="Long"/>
+    </resultMap>
+    <select id="getRowInfoById" parameterType="map"  resultType="sl.entities.BookLend">
+        SELECT * FROM z_book_lend_sys WHERE id &gt;= #{start}  AND id &lt;= #{end};
+    </select>
 </mapper>

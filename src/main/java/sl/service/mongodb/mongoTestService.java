@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
+import sl.entities.BookLend;
 import sl.entities.test;
 
 import java.util.List;
@@ -28,5 +29,13 @@ public class mongoTestService {
         test t =new test();
         t.setId(12433);
        mongoTemplate.insert(t,"test");
+    }
+
+    public void insetBookLend(List<BookLend> list){
+        mongoTemplate.insert(list,"z_book_lend_sys");
+//
+//        for(int i = 0; i < list.size(); i++){
+//            mongoTemplate.insert(list.get(i),"z_book_lend_sys");
+//        }
     }
 }
