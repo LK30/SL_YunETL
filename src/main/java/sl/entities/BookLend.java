@@ -3,9 +3,11 @@ package sl.entities;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-@Document(collection = "test")
+@Document(collection = "z_book_lend_sys")
 public class BookLend {
     @Id
+    private String _id;
+    @Field("id")
     long id;
     @Field("account")
     String account;
@@ -45,13 +47,13 @@ public class BookLend {
     String render_major;
     @Field("render_grade")
     String render_grade;
+    @Field("reader_gender")
+    String reader_gender;
     @Field("render_identity")
     String render_identity;
-
     public long getId() {
         return id;
     }
-
     public void setId(long id) {
         this.id = id;
     }
@@ -78,6 +80,14 @@ public class BookLend {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public String getReader_gender() {
+        return reader_gender;
+    }
+
+    public void setReader_gender(String reader_gender) {
+        this.reader_gender = reader_gender;
     }
 
     public int getMonth() {

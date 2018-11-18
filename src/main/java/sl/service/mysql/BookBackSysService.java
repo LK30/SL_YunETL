@@ -1,25 +1,23 @@
 package sl.service.mysql;
 
 import org.springframework.stereotype.Service;
-import sl.dao.mysql.testDao;
+import sl.dao.mysql.BookBackSysDao;
 import sl.entities.BookLend;
-import sl.entities.test;
 
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by tt on 2018/10/24.
- */
 @Service
-public class testService {
+public class BookBackSysService {
     @Resource
-    testDao testdao;
+    BookBackSysDao bookBackSysDao;
     public List<BookLend> getRowInfoById(Map<String,Long> index){
-        return testdao.getRowInfoById(index);
+        return bookBackSysDao.getRowInfoById(index);
     }
     public Map<String,Long> getRowIndex(){
-        return testdao.getRowIndex();
+        return bookBackSysDao.getRowIndex();
     }
 }
+
+
