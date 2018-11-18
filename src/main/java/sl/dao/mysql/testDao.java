@@ -1,6 +1,5 @@
 package sl.dao.mysql;
 
-import org.springframework.data.mongodb.core.index.Index;
 import sl.entities.BookLend;
 import sl.entities.test;
 
@@ -24,4 +23,6 @@ public interface testDao {
      * @return
      */
      Map<String,Long> getRowIndex();
+
+    List<BookLend> getTestBookList();
 }

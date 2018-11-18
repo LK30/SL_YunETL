@@ -19,7 +19,6 @@ public class testService {
     public List<BookLend> getRowInfoById(Map<String,Long> index){
         return testdao.getRowInfoById(index);
     }
-    public Map<String,Long> getRowIndex(){
-        return testdao.getRowIndex();
-    }
+    public Map<String,Long> getRowIndex(){return testdao.getRowIndex();}
+    public List<BookLend> getTestBookList(){return testdao.getTestBookList();}
 }

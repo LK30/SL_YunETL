@@ -18,4 +18,8 @@
 <select id="getRowInfoById" parameterType="map"  resultType="sl.entities.BookLend">
         SELECT * FROM z_book_lend_sys WHERE id &gt;= #{start}  AND id &lt;= #{end};
     </select>
+
+    <select id="getTestBookList"   resultType="sl.entities.BookLend">
+         SELECT * FROM z_book_lend_sys limit 5000;
+    </select>
 </mapper>
