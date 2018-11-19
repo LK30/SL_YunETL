@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sl.dao.mysql.EventLogDao">
+
+    <select id="getRowIndex" resultMap="getMaxAndMinIndex">
+        SELECT  MAX(id) as maxIndex,  MIN(id) AS minIndex FROM z_event_log;
+    </select>
+
+    <resultMap type="map" id="getMaxAndMinIndex">
+        <result column="maxIndex" property="maxIndex" javaType="Long"/>
+        <result column="minIndex" property="minIndex" javaType="Long"/>
+    </resultMap>
+
+    <select id="getRowInfoById" parameterType="map"  resultType="sl.entities.EventLog">
+        SELECT * FROM z_event_log WHERE id &gt;= #{start}  AND id &lt;= #{end};
+    </select>
+</mapper>

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class testScheduled {
 
-    @Scheduled(cron = "* * * * * ?")//每分钟都执行
+    @Scheduled(cron = "* * * * * ?")//每秒都执行
     public void test(){
         System.out.println("执行");
     }
