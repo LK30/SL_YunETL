@@ -57,5 +57,16 @@ public class mongoTestService {
     public void insertHours(List<Hour> list){ mongoTemplate.insert(list,"hour"); }
     /** 插入身份数据*/
     public void insertIdentity(List<Identity> list){ mongoTemplate.insert(list,"identity");}
-
+    /**  插入身份Blend数据*/
+    public void insertIdentityBlend(List<IdentityBlend> list){ mongoTemplate.insert(list,"z_identity_blend"); }
+    /** 插入Ic空间数据*/
+    public void insertIcMgr(List<IcMgrSys> list){mongoTemplate.insert(list,"z_ic_mgr_sys");}
+    /**插入月份*/
+    public void insertMonth(List<Month> list){mongoTemplate.insert(list,"month");}
+    /** 插入打印地点*/
+    public void insertPrintLocation(List<PrintLocation> list){ mongoTemplate.insert(list,"z_prints_location");}
+    /** 插入纸张类型*/
+    public void insertPrintPaperType(List<PrintPaperType> list){mongoTemplate.insert(list,"z_print_papertype");}
+    /** 插入打印类型 */
+    public void insertPirntType(List<PrintType> list){mongoTemplate.insert(list,"z_print_print_type");}
 }

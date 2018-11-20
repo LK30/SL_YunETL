@@ -257,6 +257,7 @@ public class BookLendFeature {
         s2.insertHours(list);
         System.out.println("导入成功");
     }
+
     public void importIdentity(ApplicationContext ctx,mongoTestService s2){
         IdentityService identityService = (IdentityService) ctx.getBean("identityService");
         List<Identity> list = identityService.getAllIdentity();
@@ -264,5 +265,83 @@ public class BookLendFeature {
         System.out.println("导入成功");
     }
 
+    public void importIdentityBlend(ApplicationContext ctx,mongoTestService s2){
+        IdentityBlendService identityBlendService = (IdentityBlendService) ctx.getBean("identityBlendService");
+        List<IdentityBlend> list = identityBlendService.getAllIdentityBlend();
+        s2.insertIdentityBlend(list);
+        System.out.println("导入成功");
+    }
 
+    public void importIcMgr(ApplicationContext ctx,mongoTestService s2){
+        IcMgrSysService icMgrSysService =(IcMgrSysService)ctx.getBean("icMgrSysService");
+        Map<String,Long> bookBackmap = icMgrSysService.getRowIndex();
+        /** 最小id*/
+        Long minRowIndex =  bookBackmap.get("minIndex");
+        /** 最大id*/
+        Long maxRowIndex =  bookBackmap.get("maxIndex");
+        /** 表总共条数*/
+        long rowsCnt = maxRowIndex - minRowIndex + 1;
+        /** 每次循环查询条数*/
+        long rowsSelectPerExe = (long)10000;
+        /** 取整多余部分*/
+        Long remainder = rowsCnt % rowsSelectPerExe;
+        /** 循环次数*/
+        long executionNum = ( maxRowIndex - minRowIndex + 1 - remainder ) / rowsSelectPerExe;
+        long tmp = minRowIndex;
+        System.out.println("循环次数 = " + executionNum);
+        for(int i = 1; i <= executionNum  + 1; i ++){
+            System.out.println("第" + i + " 次开始处理");
+            Map<String,Long> index = new HashMap<String, Long>();
+            System.out.println( "开始id =  " + tmp + "  结束id = " + (tmp + rowsSelectPerExe - 1));
+            /** 余数处理*/
+            if(i == executionNum  + 1){
+                if( remainder != 0){
+                    index.put("end",maxRowIndex);
+                    index.put("start",maxRowIndex - remainder + 1);
+                    List<IcMgrSys> list = icMgrSysService.getRowInfoById(index);
+                    s2.insertIcMgr(list);
+                }else {
+                    break;
+                }
+            }
+            index.put("start",tmp);
+            index.put("end",tmp + rowsSelectPerExe - 1);
+            tmp = (tmp + rowsSelectPerExe);
+            List<IcMgrSys> list = icMgrSysService.getRowInfoById(index);
+            System.out.println("数据已经拿到 **************************************");
+            s2.insertIcMgr(list);
+            System.out.println("**************************已处理了（"+ i + "） 次************************");
+        }
+        System.out.println("导入完毕");
+    }
+
+    public void importMonth(ApplicationContext ctx,mongoTestService s2){
+        MonthService monthService = (MonthService) ctx.getBean("monthService");
+        List<Month> list = monthService.getAllMonth();
+        s2.insertMonth(list);
+        System.out.println("导入成功");
+    }
+
+    public void importLocation(ApplicationContext ctx,mongoTestService s2){
+        PrintLocationService printLocationService = (PrintLocationService) ctx.getBean("printLocationService");
+        List<PrintLocation> list = printLocationService.getPrintLocations();
+        s2.insertPrintLocation(list);
+        System.out.println("导入成功");
+    }
+
+    //
+
+    public void importPrintPaperType(ApplicationContext ctx,mongoTestService s2){
+        PrintPaperTypeService printPaperTypeService = (PrintPaperTypeService) ctx.getBean("printPaperTypeService");
+        List<PrintPaperType> list = printPaperTypeService.getPrintPaperType();
+        s2.insertPrintPaperType(list);
+        System.out.println("导入成功");
+    }
+
+    public void importPrintType(ApplicationContext ctx,mongoTestService s2){
+        PrintTypeService printTypeService = (PrintTypeService) ctx.getBean("printTypeService");
+        List<PrintType> list = printTypeService.getPrintType();
+        s2.insertPirntType(list);
+        System.out.println("导入成功");
+    }
 }

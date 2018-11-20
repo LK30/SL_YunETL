@@ -22,8 +22,7 @@ public class mainTest {
     public static void main(String[] args) {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
         mongoTestService s2 = (mongoTestService)ctx.getBean("mongoTestService");
-
         BookLendFeature bookLendFeature = new BookLendFeature();
-        bookLendFeature.importIdentity(ctx,s2);
+        bookLendFeature.importPrintType(ctx,s2);
     }
 }
