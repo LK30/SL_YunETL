@@ -26,4 +26,6 @@ public interface testDao {
      Map<String,Long> getRowIndex();
 
      List<BookLend> getTestBookList();
+
+    void insertTestBookList(List<BookLend> list);
 }

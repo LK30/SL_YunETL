@@ -12,8 +12,8 @@ import java.util.List;
  */
 public class k {
     public static void main(String[] args) {
-       // OperatingSystemMXBean operatingSystemMXBean = (com.sun.management.OperatingSystemMXBean)ManagementFactory.getOperatingSystemMXBean();
-      //  System.out.println("getProcessCpuLoad   "+operatingSystemMXBean.getProcessCpuLoad());
+        //OperatingSystemMXBean operatingSystemMXBean = (com.sun.management.OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
+        //System.out.println("getProcessCpuLoad   "+operatingSystemMXBean.getProcessCpuLoad());
         testForeach();
     }
 
@@ -37,7 +37,13 @@ public class k {
         System.out.print("修改数据时间  ");
         System.out.println(endModify-startModify);
 
+        long startInsert = System.currentTimeMillis();
+        s.insertTestBookList(list);
+        long endInsert = System.currentTimeMillis();
+        System.out.print("插入数据时间  ");
+        System.out.println(endInsert-startInsert);
+
         System.out.print("总时间  ");
-        System.out.println(endModify-startGetBook);
+        System.out.println(endInsert-startGetBook);
     }
 }

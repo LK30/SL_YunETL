@@ -21,4 +21,5 @@ public class testService {
     }
     public Map<String,Long> getRowIndex(){return testdao.getRowIndex();}
     public List<BookLend> getTestBookList(){return testdao.getTestBookList();}
+    public void insertTestBookList(List<BookLend> list){testdao.insertTestBookList(list);}
 }

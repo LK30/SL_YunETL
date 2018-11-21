@@ -30,30 +30,40 @@ public class BookLend {
     @Field("book_category")
     String book_category;
     @Field("book_macrc_no")
-    String book_macrc_no;
+    String book_marc_no;
     @Field("book_author")
     String book_author;
     @Field("book_publisher")
     String book_publisher;
     @Field("book_pubyear")
     String book_pubyear;
-    @Field("render_name")
-    String render_name;
-    @Field("render_school")
-    String render_school;
-    @Field("render_academy")
-    String render_academy;
-    @Field("render_major")
-    String render_major;
-    @Field("render_grade")
-    String render_grade;
+    @Field("reader_name")
+    String reader_name;
+    @Field("reader_school")
+    String reader_school;
+    @Field("reader_academy")
+    String reader_academy;
+    @Field("reader_major")
+    String reader_major;
+    @Field("reader_grade")
+    String reader_grade;
     @Field("reader_gender")
     String reader_gender;
-    @Field("render_identity")
-    String render_identity;
+    @Field("reader_identity")
+    String reader_identity;
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
+
     public long getId() {
         return id;
     }
+
     public void setId(long id) {
         this.id = id;
     }
@@ -80,14 +90,6 @@ public class BookLend {
 
     public void setYear(int year) {
         this.year = year;
-    }
-
-    public String getReader_gender() {
-        return reader_gender;
-    }
-
-    public void setReader_gender(String reader_gender) {
-        this.reader_gender = reader_gender;
     }
 
     public int getMonth() {
@@ -146,12 +148,12 @@ public class BookLend {
         this.book_category = book_category;
     }
 
-    public String getBook_macrc_no() {
-        return book_macrc_no;
+    public String getBook_marc_no() {
+        return book_marc_no;
     }
 
-    public void setBook_macrc_no(String book_macrc_no) {
-        this.book_macrc_no = book_macrc_no;
+    public void setBook_marc_no(String book_marc_no) {
+        this.book_marc_no = book_marc_no;
     }
 
     public String getBook_author() {
@@ -178,51 +180,59 @@ public class BookLend {
         this.book_pubyear = book_pubyear;
     }
 
-    public String getRender_name() {
-        return render_name;
+    public String getReader_name() {
+        return reader_name;
     }
 
-    public void setRender_name(String render_name) {
-        this.render_name = render_name;
+    public void setReader_name(String reader_name) {
+        this.reader_name = reader_name;
     }
 
-    public String getRender_school() {
-        return render_school;
+    public String getReader_school() {
+        return reader_school;
     }
 
-    public void setRender_school(String render_school) {
-        this.render_school = render_school;
+    public void setReader_school(String reader_school) {
+        this.reader_school = reader_school;
     }
 
-    public String getRender_academy() {
-        return render_academy;
+    public String getReader_academy() {
+        return reader_academy;
     }
 
-    public void setRender_academy(String render_academy) {
-        this.render_academy = render_academy;
+    public void setReader_academy(String reader_academy) {
+        this.reader_academy = reader_academy;
     }
 
-    public String getRender_major() {
-        return render_major;
+    public String getReader_major() {
+        return reader_major;
     }
 
-    public void setRender_major(String render_major) {
-        this.render_major = render_major;
+    public void setReader_major(String reader_major) {
+        this.reader_major = reader_major;
     }
 
-    public String getRender_grade() {
-        return render_grade;
+    public String getReader_grade() {
+        return reader_grade;
     }
 
-    public void setRender_grade(String render_grade) {
-        this.render_grade = render_grade;
+    public void setReader_grade(String reader_grade) {
+        this.reader_grade = reader_grade;
     }
 
-    public String getRender_identity() {
-        return render_identity;
+    public String getReader_gender() {
+        return reader_gender;
     }
 
-    public void setRender_identity(String render_identity) {
-        this.render_identity = render_identity;
+    public void setReader_gender(String reader_gender) {
+        this.reader_gender = reader_gender;
+    }
+
+    public String getReader_identity() {
+        return reader_identity;
+    }
+
+    public void setReader_identity(String reader_identity) {
+        this.reader_identity = reader_identity;
     }
 }

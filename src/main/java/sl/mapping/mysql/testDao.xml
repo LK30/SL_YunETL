@@ -22,4 +22,61 @@
     <select id="getTestBookList"   resultType="sl.entities.BookLend">
          SELECT * FROM z_book_lend_sys limit 5000;
     </select>
+
+    <insert id="insertTestBookList" parameterType="sl.entities.BookLend">
+        insert into z_book_lend_sys_copy(
+id,
+account,
+operation_time,
+year,
+month,
+day,
+hour,
+operation,
+book_name,
+book_no,
+book_category,
+book_marc_no,
+book_author,
+book_publisher,
+book_pubyear,
+reader_name,
+reader_gender,
+reader_school,
+reader_academy,
+reader_major,
+reader_grade,
+reader_identity
+)
+values
+<foreach collection ="list" item="item" index= "index" separator =",">
+    (
+    #{item.id},
+    #{item.account},
+    #{item.operation_time},
+    #{item.year},
+    #{item.month},
+    #{item.day},
+    #{item.hour},
+    #{item.operation},
+    #{item.book_name},
+    #{item.book_no},
+    #{item.book_category},
+    #{item.book_marc_no},
+    #{item.book_author},
+    #{item.book_publisher},
+    #{item.book_pubyear},
+    #{item.reader_name},
+    #{item.reader_gender},
+    #{item.reader_school},
+    #{item.reader_academy},
+    #{item.reader_major},
+    #{item.reader_grade},
+    #{item.reader_identity}
+    )
+</foreach >
+
+
+
+    </insert>
 </mapper>
